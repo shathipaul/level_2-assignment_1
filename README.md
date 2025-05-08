@@ -1,10 +1,34 @@
 1: Explain the difference between any, unknown, and never types in TypeScript.
 
-Any: This type justifies it's name. Any type can include anything, this can be a number, string, boolean. This is a flexible type and we can use this when we don't care about the type of the thing.
+Any: This type justifies it's name. Any type can include anything, this can be a number, string or boolean. This is a flexible type and we can use this when we don't care about the type of the thing.
 
-Unknown: This is similar to Any type but not exactly. This is like we don't know the type of the item but not anything can be it's type.
+let x: any = "Hello world";
+x = 42;
+x = true;
+
+We can assign anything in "x" here, it won't give ant error.
+
+Unknown: This is similar to Any type but not exactly. This is like we don't know the type of the item but not anything can be it's type. We can't do operations of unknown type.
+
+let x : unknown = 200;
+
+console.log(x+1)
+
+This will give an error. But
+
+let x: unknown = "Hello world";
+let y: unknown = 200;
+let z: unknown = true;
+
+These won't give any error
 
 Never: We use type Never when we know that the type of the function will never going return anything. We mostly use this for handling error messages.
+
+const throwError = (msg: string): never => {
+throw new Error(msg);
+};
+
+throwError("Error message");
 
 2: Provide an example of using union and intersection types in TypeScript.
 
